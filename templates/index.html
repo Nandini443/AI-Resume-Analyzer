@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Resume Analyzer</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <h1>AI Resume Analyzer</h1>
+      <p>Upload one or multiple resumes, use JD templates, compare results, and export PDF reports.</p>
+    </div>
+
+    <div class="card">
+      <div class="jd-buttons">
+        <button type="button" onclick="loadTemplate('ml_intern')">ML Intern JD</button>
+        <button type="button" onclick="loadTemplate('data_analyst')">Data Analyst JD</button>
+        <button type="button" onclick="loadTemplate('nlp_intern')">NLP Intern JD</button>
+        <button type="button" onclick="loadTemplate('python_dev')">Python Developer JD</button>
+      </div>
+
+      <form id="analyzeForm">
+        <label>Drag & Drop Resume PDFs</label>
+        <div id="dropArea" class="drop-area">
+          <p>Drop PDF files here or click to browse</p>
+          <input type="file" id="resume" name="resumes" accept=".pdf" multiple required hidden>
+          <button type="button" id="browseBtn">Choose Files</button>
+          <div id="fileList"></div>
+        </div>
+
+        <label>Job Description</label>
+        <textarea name="job_description" id="job_description" rows="8" required></textarea>
+
+        <button type="submit">Analyze Resume(s)</button>
+      </form>
+    </div>
+
+    <div id="results" class="hidden"></div>
+
+    <button id="downloadBtn" class="download-btn hidden">Download PDF Report</button>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
